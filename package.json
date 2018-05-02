@@ -6,7 +6,8 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "tsc"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "url": "https://github.com/ThomasRooney/BidirectionalMap/issues"
   },
   "homepage": "https://github.com/ThomasRooney/BidirectionalMap#readme",
+  "files": ["./lib/index.d.ts", "./lib/index.js"],
   "dependencies": {},
   "devDependencies": {
     "typescript": "2.8.3",

@@ -17,7 +17,7 @@ export interface IBidirectionalMap<K, V> extends Map<K, V> {
   has: (key: K) => boolean; // Returns true if an element with the specified key exists; otherwise false.
   hasKey: (key: K) => boolean; // Returns true if an element with the specified key exists; otherwise false.
   hasValue: (value: V) => boolean; // Returns true if an element with the specified value exists; otherwise false.
-  [Symbol.toStringTag]: 'Map';
+  [Symbol.toStringTag]: 'Map'; // Anything implementing Map must always have toStringTag declared to be 'Map'. I consider this a little silly.
 }
 
 export default class BidirectionalMap<K, V> implements IBidirectionalMap<K, V> {
