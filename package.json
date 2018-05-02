@@ -1,0 +1,38 @@
+{
+  "name": "bidirectionalmap",
+  "version": "0.0.1",
+  "description": "Provides a BiDirectionalMap component that ",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "tslint-check": "tslint-config-prettier-check ./tslint.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ThomasRooney/tight-form.git"
+  },
+  "keywords": [
+    "map",
+    "bidirectional map",
+    "typed",
+    "typesafe",
+    "typescript",
+    "bi directional map",
+    "two way map"
+  ],
+  "author": "Thomas Rooney",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ThomasRooney/BidirectionalMap/issues"
+  },
+  "homepage": "https://github.com/ThomasRooney/BidirectionalMap#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "2.8.3",
+    "tslint": "5.9.1",
+    "tslint-config-prettier": "1.12.0",
+    "tslint-eslint-rules": "5.1.0",
+    "prettier": "1.12.1"
+  }
+}
