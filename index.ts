@@ -38,26 +38,18 @@ export default class BidirectionalMap<K, V> implements IBidirectionalMap<K, V> {
   public getValue = (a: K): V | undefined => this.get(a);
   public getKey = (b: V): K | undefined => this.valueKeyMap.get(b);
   public set = (key: K, value: V) => {
-    if (!this.has(key)) {
-      this.size += 1;
-    }
+    // Make sure no duplicates. Our conflict scenario is handled by deleting potential duplicates, in favour of the current arguments
+    this.delete(key);
+    this.deleteValue(value);
 
+    this.size += 1;
     this.keyValueMap.set(key, value);
     this.valueKeyMap.set(value, key);
 
     return this;
   };
   public setValue = (key: K, value: V) => this.set(key, value);
-  public setKey = (value: V, key: K) => {
-    if (!this.has(key)) {
-      this.size += 1;
-    }
-
-    this.keyValueMap.set(key, value);
-    this.valueKeyMap.set(value, key);
-
-    return this;
-  };
+  public setKey = (value: V, key: K) => this.set(key, value);
   public clear = () => {
     this.keyValueMap.clear();
     this.valueKeyMap.clear();
