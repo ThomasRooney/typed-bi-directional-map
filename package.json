@@ -1,7 +1,8 @@
 {
-  "name": "bidirectionalmap",
+  "name": "typed-bi-directional-map",
   "version": "0.0.1",
-  "description": "Provides a BiDirectionalMap component that ",
+  "description":
+    "Provides a Bi-Directional Map class that conforms to Map interface, but also allows one to lookup key from value.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
@@ -11,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ThomasRooney/tight-form.git"
+    "url": "git+ssh://git@github.com/ThomasRooney/typed-bi-directional-map.git"
   },
   "keywords": [
     "map",
@@ -25,9 +26,9 @@
   "author": "Thomas Rooney",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ThomasRooney/BidirectionalMap/issues"
+    "url": "https://github.com/ThomasRooney/typed-bi-directional-map/issues"
   },
-  "homepage": "https://github.com/ThomasRooney/BidirectionalMap#readme",
+  "homepage": "https://github.com/ThomasRooney/typed-bi-directional-map#readme",
   "files": ["./lib/index.d.ts", "./lib/index.js"],
   "dependencies": {},
   "devDependencies": {
