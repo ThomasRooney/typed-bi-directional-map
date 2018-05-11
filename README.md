@@ -27,3 +27,9 @@ interface IBidirectionalMap<K, V> extends Map<K, V> {
   [Symbol.toStringTag]: 'Map'; // Anything implementing Map must always have toStringTag declared to be 'Map'. I consider this a little silly.
 }
 ```
+
+# Installation
+
+```
+npm install --save typed-bi-directional-map
+```
