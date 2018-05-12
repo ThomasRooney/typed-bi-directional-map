@@ -1,8 +1,7 @@
 {
   "name": "typed-bi-directional-map",
-  "version": "0.0.3",
-  "description":
-    "Provides a Bi-Directional Map class that conforms to Map interface, but also allows one to lookup key from value.",
+  "version": "1.0.0",
+  "description": "Provides a Bi-Directional Map class that conforms to Map interface, but also allows one to lookup key from value.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
@@ -29,7 +28,9 @@
     "url": "https://github.com/ThomasRooney/typed-bi-directional-map/issues"
   },
   "homepage": "https://github.com/ThomasRooney/typed-bi-directional-map#readme",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "^22.2.3",
@@ -42,12 +43,21 @@
     "typescript": "2.8.3"
   },
   "jest": {
-    "roots": ["<rootDir>/src"],
+    "roots": [
+      "<rootDir>/src"
+    ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
     "collectCoverage": true
   }
 }
