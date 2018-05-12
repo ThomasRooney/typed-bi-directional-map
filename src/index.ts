@@ -1,8 +1,8 @@
 export interface IBidirectionalMap<K, V> extends Map<K, V> {
   readonly size: number; // returns the total number of elements
   get: (key: K) => V | undefined; // returns a specified element
-  getValue: (key: K) => V | undefined; // returns a specified element
   getKey: (value: V) => K | undefined; // returns a specified element
+  getValue: (key: K) => V | undefined; // returns a specified element
   set: (key: K, value: V) => this; // adds or updates the value of an element looked up via the specified key
   setValue: (key: K, value: V) => this; // adds or updates the key of an element looked up via the specified value
   setKey: (value: V, key: K) => this; // adds or updates the value of an element looked up via the specified key
@@ -18,6 +18,7 @@ export interface IBidirectionalMap<K, V> extends Map<K, V> {
   hasKey: (key: K) => boolean; // Returns true if an element with the specified key exists; otherwise false.
   hasValue: (value: V) => boolean; // Returns true if an element with the specified value exists; otherwise false.
   [Symbol.toStringTag]: 'Map'; // Anything implementing Map must always have toStringTag declared to be 'Map'. I consider this a little silly.
+  inspect: () => string; // A utility function to inspect current contents as a string
 }
 
 export default class BidirectionalMap<K, V> implements IBidirectionalMap<K, V> {
@@ -35,8 +36,8 @@ export default class BidirectionalMap<K, V> implements IBidirectionalMap<K, V> {
   public values = () => this.keyValueMap.values();
 
   public get = (a: K): V | undefined => this.keyValueMap.get(a);
-  public getValue = (a: K): V | undefined => this.get(a);
   public getKey = (b: V): K | undefined => this.valueKeyMap.get(b);
+  public getValue = (a: K): V | undefined => this.get(a);
   public set = (key: K, value: V) => {
     // Make sure no duplicates. Our conflict scenario is handled by deleting potential duplicates, in favour of the current arguments
     this.delete(key);
@@ -48,8 +49,8 @@ export default class BidirectionalMap<K, V> implements IBidirectionalMap<K, V> {
 
     return this;
   };
-  public setValue = (key: K, value: V) => this.set(key, value);
   public setKey = (value: V, key: K) => this.set(key, value);
+  public setValue = (key: K, value: V) => this.set(key, value);
   public clear = () => {
     this.size = 0;
     this.keyValueMap.clear();
@@ -83,4 +84,17 @@ export default class BidirectionalMap<K, V> implements IBidirectionalMap<K, V> {
   public has = (key: K) => this.keyValueMap.has(key);
   public hasKey = (key: K) => this.has(key);
   public hasValue = (value: V) => this.valueKeyMap.has(value);
+  public inspect = () => {
+    let str = 'BidirectionalMap {';
+    let entry = 0;
+    this.forEach((value, key) => {
+      entry++;
+      str += '' + key.toString() + ' => ' + value.toString() + '';
+      if (entry < this.size) {
+        str += ', ';
+      }
+    });
+    str += '}';
+    return str;
+  };
 }

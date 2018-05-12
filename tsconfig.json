@@ -11,5 +11,6 @@
     "outDir": "lib",
     "lib": ["es6", "es7", "dom"]
   },
-  "include": ["index.ts"]
+  "include": ["src"],
+  "exclude": ["**/*.test.ts"]
 }
