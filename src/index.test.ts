@@ -205,3 +205,23 @@ describe('alphabet letter => index', () => {
     }
   });
 });
+
+describe('conflict scenarios', () => {
+  it('{A => 1} followed by {A => 2} results in {A => 2}', () => {
+    const map = new BiDirectionalMap<string, number>();
+    map.set('A', 1);
+    map.set('A', 2);
+    expect(map.get('A')).toBe(2);
+    expect(map.getKey(1)).toBe(undefined);
+    expect(map.size).toBe(1);
+  });
+  it('{A => 1} followed by {B => 1} results in {B => 1}', () => {
+    const map = new BiDirectionalMap<string, number>();
+    map.set('A', 1);
+    map.set('B', 1);
+    expect(map.get('A')).toBe(undefined);
+    expect(map.get('B')).toBe(1);
+    expect(map.getKey(1)).toBe('B');
+    expect(map.size).toBe(1);
+  });
+});
