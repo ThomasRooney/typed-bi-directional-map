@@ -25,9 +25,12 @@ export default class BidirectionalMap<K, V> implements IBidirectionalMap<K, V> {
   private keyValueMap: Map<K, V> = new Map<K, V>();
   private valueKeyMap: Map<V, K> = new Map<V, K>();
 
+  get size() {
+    return this.keyValueMap.size;
+  }
+
   /* tslint:disable member-ordering */
   public [Symbol.toStringTag]: 'Map';
-  public size: number = 0;
   public [Symbol.iterator]: () => IterableIterator<[K, V]> = this.keyValueMap[Symbol.iterator];
   /* tslint:enable */
 
@@ -43,7 +46,6 @@ export default class BidirectionalMap<K, V> implements IBidirectionalMap<K, V> {
     this.delete(key);
     this.deleteValue(value);
 
-    this.size += 1;
     this.keyValueMap.set(key, value);
     this.valueKeyMap.set(value, key);
 
@@ -52,14 +54,12 @@ export default class BidirectionalMap<K, V> implements IBidirectionalMap<K, V> {
   public setKey = (value: V, key: K) => this.set(key, value);
   public setValue = (key: K, value: V) => this.set(key, value);
   public clear = () => {
-    this.size = 0;
     this.keyValueMap.clear();
     this.valueKeyMap.clear();
   };
   public delete = (key: K) => {
     if (this.has(key)) {
       const value = this.keyValueMap.get(key) as V;
-      this.size -= 1;
       this.keyValueMap.delete(key);
       this.valueKeyMap.delete(value);
       return true;
