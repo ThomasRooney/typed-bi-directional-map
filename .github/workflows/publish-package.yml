@@ -1,0 +1,26 @@
+name: Publish package
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 12.18.1
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.18.1
+
+    - run: bash .github/bin/create-npmrc.sh
+      env:
+        NPMRC: ${{ secrets.NPMRC_ACTIONS }}
+
+    - run: npm install
+    - run: npm publish --verbose || true

@@ -8,11 +8,11 @@
   "scripts": {
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
     "test": "jest",
-    "prepublish": "tsc && jest"
+    "prepublish": "tsc"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ThomasRooney/typed-bi-directional-map.git"
+    "url": "git+ssh://git@github.com/UXPin/typed-bi-directional-map.git"
   },
   "keywords": [
     "map",
@@ -26,9 +26,9 @@
   "author": "Thomas Rooney",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ThomasRooney/typed-bi-directional-map/issues"
+    "url": "https://github.com/UXPin/typed-bi-directional-map/issues"
   },
-  "homepage": "https://github.com/ThomasRooney/typed-bi-directional-map#readme",
+  "homepage": "https://github.com/UXPin/typed-bi-directional-map#readme",
   "files": ["lib"],
   "dependencies": {},
   "devDependencies": {
